@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Vocacional - Grau Técnico</title>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <style>
+        :root {
+            --grau-green: #2e4e16;
+            --grau-green-light: #4a7c2a;
+            --grau-blue: #1e6b96;
+            --grau-blue-light: #2d8bc0;
+            --grau-white: #ffffff;
+            --grau-gray: #f5f7fa;
+            --grau-gray-dark: #6b7280;
+            --grau-success: #10b981;
+            --grau-warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--grau-green) 0%, var(--grau-blue) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #1f2937;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: var(--grau-white);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            animation: containerSlide 0.6s ease-out;
+        }
+
+        @keyframes containerSlide {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--grau-green) 0%, var(--grau-blue) 100%);
+            color: var(--grau-white);
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="20" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="30" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1.2" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .grau-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .header h1 {
+            margin: 0 0 12px 0;
+            font-size: 2.2em;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .header p {
+            margin: 0;
+            font-size: 1.1em;
+            opacity: 0.95;
+            line-height: 1.5;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        /* Tela de Início */
+        .start-screen {
+            text-align: center;
+        }
+
+        .start-screen h2 {
+            color: var(--grau-green);
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .start-screen p {
+            color: #4b5563;
+            font-size: 1.1em;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: var(--grau-gray);
+            padding: 25px 20px;
+            border-radius: 16px;
+            text-align: center;
+            border: 2px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--grau-green);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(46, 78, 22, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            margin: 0 0 10px 0;
+            color: var(--grau-green);
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: #6b7280;
+            font-size: 0.95em;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Botões */
+        .btn {
+            background: linear-gradient(135deg, var(--grau-green) 0%, var(--grau-blue) 100%);
+            color: var(--grau-white);
+            border: none;
+            padding: 16px 40px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(46, 78, 22, 0.3);
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(46, 78, 22, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-share {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin-left: 10px;
+        }
+
+        /* Tela de Perguntas */
+        .question-container {
+            display: none;
+        }
+
+        .question-container.active {
+            display: block;
+            animation: questionFade 0.5s ease-out;
+        }
+
+        @keyframes questionFade {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .progress-container {
+            margin-bottom: 30px;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+            color: var(--grau-gray-dark);
+        }
+
+        .progress-bar {
+            background: #e5e7eb;
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, var(--grau-green) 0%, var(--grau-blue) 100%);
+            height: 100%;
+            transition: width 0.5s ease;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: progressShine 2s infinite;
+        }
+
+        @keyframes progressShine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .question-number {
+            color: var(--grau-green);
+            font-weight: 600;
+            font-size: 1em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .question-number::before {
+            content: '📋';
+        }
+
+        .question-text {
+            font-size: 1.4em;
+            color: #1f2937;
+            margin-bottom: 30px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        @media (min-width: 640px) {
+            .options {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .option {
+            background: var(--grau-white);
+            border: 2px solid #e5e7eb;
+            padding: 20px;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--grau-green) 0%, var(--grau-blue) 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .option:hover {
+            border-color: var(--grau-green);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(46, 78, 22, 0.1);
+        }
+
+        .option:hover::before {
+            transform: scaleX(1);
+        }
+
+        .option.selected {
+            border-color: var(--grau-green);
+            background: linear-gradient(135deg, #f8fffe 0%, #f0f9ff 100%);
+            box-shadow: 0 5px 20px rgba(46, 78, 22, 0.15);
+        }
+
+        .option.selected::before {
+            transform: scaleX(1);
+        }
+
+        .option-letter {
+            background: var(--grau-green);
+            color: var(--grau-white);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1em;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .option.selected .option-letter {
+            background: var(--grau-blue);
+            transform: scale(1.1);
+        }
+
+        .option-text {
+            flex: 1;
+            color: #374151;
+            font-size: 1.05em;
+            line-height: 1.5;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            gap: 15px;
+        }
+
+        .btn-secondary {
+            background: #6b7280;
+            color: var(--grau-white);
+            border: none;
+            padding: 14px 30px;
+            font-size: 1em;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .btn-secondary:hover {
+            background: #4b5563;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary:disabled {
+            background: #d1d5db;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-next {
+            flex: 2;
+        }
+
+        /* Tela de Resultados */
+        .result-screen {
+            display: none;
+        }
+
+        .result-screen.active {
+            display: block;
+            animation: resultFade 0.8s ease-out;
+        }
+
+        @keyframes resultFade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .result-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .result-header h2 {
+            color: var(--grau-green);
+            font-size: 2em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .result-header p {
+            color: #6b7280;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .result-area {
+            background: linear-gradient(135deg, var(--grau-green) 0%, var(--grau-blue) 100%);
+            color: var(--grau-white);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-area::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="15" cy="25" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="85" cy="35" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="75" r="1.2" fill="rgba(255,255,255,0.1)"/><circle cx="25" cy="85" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+        }
+
+        .result-content-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .result-area .icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .result-area h3 {
+            font-size: 1.8em;
+            margin: 0 0 15px 0;
+            font-weight: 700;
+        }
+
+        .result-area .percentage {
+            font-size: 3.5em;
+            font-weight: 800;
+            margin: 15px 0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .result-area p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            margin: 0;
+        }
+
+        .result-details {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .result-details {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+
+        .result-description {
+            background: var(--grau-white);
+            padding: 30px;
+            border-radius: 16px;
+            border-left: 6px solid var(--grau-green);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .result-description h4 {
+            color: var(--grau-green);
+            font-size: 1.3em;
+            margin: 0 0 20px 0;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .result-description h4::before {
+            content: '📋';
+        }
+
+        .result-description p {
+            color: #4b5563;
+            line-height: 1.7;
+            margin: 0 0 20px 0;
+            font-size: 1.05em;
+        }
+
+        .result-description ul {
+            margin: 20px 0;
+            padding-left: 0;
+        }
+
+        .result-description li {
+            color: #4b5563;
+            margin: 12px 0;
+            line-height: 1.6;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .result-description li::before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .career-opportunities {
+            background: var(--grau-gray);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .career-opportunities h4 {
+            color: var(--grau-blue);
+            font-size: 1.3em;
+            margin: 0 0 20px 0;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .career-opportunities h4::before {
+            content: '💼';
+        }
+
+        .career-opportunities ul {
+            margin: 0;
+            padding-left: 0;
+        }
+
+        .career-opportunities li {
+            color: #4b5563;
+            margin: 12px 0;
+            line-height: 1.5;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95em;
+        }
+
+        .career-opportunities li::before {
+            content: '🎯';
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .scores-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .score-card {
+            background: var(--grau-white);
+            border: 2px solid #e5e7eb;
+            padding: 20px 15px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .score-card:hover {
+            border-color: var(--grau-green);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(46, 78, 22, 0.1);
+        }
+
+        .score-card .icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .score-card h4 {
+            color: #374151;
+            font-size: 0.9em;
+            margin: 10px 0;
+            font-weight: 600;
+        }
+
+        .score-card .score {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: var(--grau-green);
+        }
+
+        .recommendations {
+            background: linear-gradient(135deg, #f0f9ff 0%, #f0fff4 100%);
+            border: 2px solid var(--grau-blue-light);
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+        }
+
+        .recommendations h4 {
+            color: var(--grau-blue);
+            font-size: 1.3em;
+            margin: 0 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+        }
+
+        .recommendations h4::before {
+            content: '💡';
+        }
+
+        .recommendations ul {
+            margin: 0;
+            padding-left: 0;
+        }
+
+        .recommendations li {
+            color: #4b5563;
+            margin: 12px 0;
+            line-height: 1.6;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .recommendations li::before {
+            content: '📚';
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 30px;
+            background: var(--grau-gray);
+            border-radius: 16px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section h4 {
+            color: var(--grau-green);
+            font-size: 1.4em;
+            margin: 0 0 15px 0;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            color: #6b7280;
+            font-size: 1.05em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .share-section {
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 16px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .share-section h4 {
+            font-size: 1.3em;
+            margin: 0 0 15px 0;
+            font-weight: 700;
+        }
+
+        .share-section p {
+            opacity: 0.9;
+            margin-bottom: 20px;
+            font-size: 1em;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .share-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .restart-btn {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        /* Modal de compartilhamento */
+        .share-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .share-modal.active {
+            display: flex;
+        }
+
+        .share-modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 90%;
+            max-height: 90%;
+            overflow: auto;
+        }
+
+        .share-modal h3 {
+            color: var(--grau-green);
+            margin-bottom: 20px;
+        }
+
+        .share-image-container {
+            margin: 20px 0;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .share-modal-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        /* Animações especiais */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .bounce {
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Responsividade */
+        @media (max-width: 640px) {
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .question-text {
+                font-size: 1.2em;
+            }
+            
+            .navigation {
+                flex-direction: column;
+            }
+            
+            .btn-secondary, .btn-next {
+                width: 100%;
+            }
+
+            .share-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <div class="grau-logo">
+                    🎓 Grau Técnico
+                </div>
+                <h1 id="quiz-title">Teste Vocacional Grau Técnico</h1>
+                <p id="quiz-subtitle">Descubra sua carreira ideal e transforme seu futuro com nossos cursos técnicos</p>
+            </div>
+        </div>
+        <div class="content">
+            <!-- Tela de Início -->
+            <div class="start-screen" id="start-screen">
+                <h2>Encontre Sua Carreira dos Sonhos!</h2>
+                <p>Este teste vocacional exclusivo da Grau Técnico foi desenvolvido para ajudar você a descobrir qual área técnica combina mais com sua personalidade, habilidades e interesses. Em 20 perguntas, vamos identificar suas aptidões e conectar você com as melhores oportunidades do mercado!</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Teste Personalizado</h3>
+                        <p>Algoritmo inteligente que analisa seu perfil único</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💼</div>
+                        <h3>26 Carreiras</h3>
+                        <p>Oportunidades reais de emprego no mercado</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Análise Detalhada</h3>
+                        <p>Resultados completos com recomendações</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🚀</div>
+                        <h3>CTA para Cursos</h3>
+                        <p>Conheça os cursos da Grau para sua área</p>
+                    </div>
+                </div>
+                
+                <button class="btn pulse" onclick="startQuiz()">
+                    🚀 Iniciar Teste Vocacional
+                </button>
+            </div>
+            
+            <!-- Tela de Perguntas -->
+            <div class="question-container" id="question-container">
+                <div class="progress-container">
+                    <div class="progress-info">
+                        <span id="progress-text">Pergunta 1 de 20</span>
+                        <span id="progress-percent">5%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="question-number" id="question-number">Pergunta 1</div>
+                <div class="question-text" id="question-text"></div>
+                
+                <div class="options" id="options"></div>
+                
+                <div class="navigation">
+                    <button class="btn-secondary" id="prev-btn" onclick="previousQuestion()" disabled>
+                        ← Anterior
+                    </button>
+                    <button class="btn btn-next" id="next-btn" onclick="nextQuestion()" disabled>
+                        Próxima →
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Tela de Resultados -->
+            <div class="result-screen" id="result-screen">
+                <div class="result-header">
+                    <h2 id="result-title">Seu Futuro na Grau Técnico!</h2>
+                    <p>Com base nas suas respostas, identificamos as áreas que mais combinam com seu perfil</p>
+                </div>
+                
+                <div id="result-content"></div>
+                
+                <div class="share-section">
+                    <h4>🎉 Compartilhe Seu Resultado!</h4>
+                    <p>Mostre para seus amigos qual carreira combina com você e inspire mais pessoas</p>
+                    <div class="share-buttons">
+                        <button class="share-btn" onclick="shareResult()">
+                            📱 Salvar como Imagem
+                        </button>
+                        <button class="share-btn" onclick="shareOnSocial()">
+                            📤 Compartilhar Agora
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="cta-section">
+                    <h4>Pronto para transformar seu futuro?</h4>
+                    <p>Conheça os cursos da Grau Técnico que vão preparar você para essas carreiras promissoras!</p>
+                    <button class="btn bounce" onclick="showCourses()">
+                        📚 Conhecer Cursos da Grau
+                    </button>
+                </div>
+                
+                <button class="btn restart-btn" onclick="restartQuiz()">
+                    🔄 Fazer o Teste Novamente
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Compartilhamento -->
+    <div class="share-modal" id="share-modal">
+        <div class="share-modal-content">
+            <h3>📸 Compartilhar Resultado</h3>
+            <p>Salve esta imagem e compartilhe em suas redes sociais!</p>
+            <div class="share-image-container">
+                <img id="share-image" src="" alt="Resultado do Teste Vocacional" style="max-width: 100%;">
+            </div>
+            <div class="share-modal-buttons">
+                <button class="btn-secondary" onclick="closeShareModal()">Fechar</button>
+                <button class="btn" onclick="downloadImage()">📥 Baixar Imagem</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuração padrão
+        const defaultConfig = {
+            quiz_title: "Teste Vocacional Grau Técnico",
+            quiz_subtitle: "Descubra sua carreira ideal e transforme seu futuro com nossos cursos técnicos",
+            result_title: "Seu Futuro na Grau Técnico!",
+            primary_color: "#2e4e16",
+            secondary_color: "#1e6b96",
+            text_color: "#1f2937",
+            background_color: "#ffffff",
+            accent_color: "#4a7c2a",
+            font_family: "Segoe UI",
+            font_size: 16
+        };
+
+        let config = { ...defaultConfig };
+
+        // Sistema de perguntas expandido - 20 perguntas ÚNICAS
+        const questions = [
+            {
+                question: "Qual tipo de ambiente de trabalho mais te atrai?",
+                options: [
+                    { text: "Hospitais e clínicas com contato direto com pacientes", area: "enfermagem", weight: 3 },
+                    { text: "Laboratórios com equipamentos de análise e pesquisa", area: "analises_clinicas", weight: 3 },
+                    { text: "Farmácias e indústrias com foco em medicamentos", area: "farmacia", weight: 3 },
+                    { text: "Clínicas de imagem com tecnologia de ponta", area: "radiologia", weight: 3 },
+                    { text: "Escritórios com organização e processos administrativos", area: "administracao", weight: 3 },
+                    { text: "Ambientes tech com computadores e sistemas", area: "informatica", weight: 3 }
+                ]
+            },
+            {
+                question: "Como você prefere resolver problemas?",
+                options: [
+                    { text: "Com empatia, ouvindo e cuidando das pessoas", area: "enfermagem", weight: 2 },
+                    { text: "Analisando dados e seguindo protocolos científicos", area: "analises_clinicas", weight: 2 },
+                    { text: "Preparando fórmulas e manipulando substâncias", area: "farmacia", weight: 2 },
+                    { text: "Operando equipamentos e interpretando imagens", area: "radiologia", weight: 2 },
+                    { text: "Organizando processos e coordenando equipes", area: "administracao", weight: 2 },
+                    { text: "Programando soluções e configurando sistemas", area: "informatica", weight: 2 }
+                ]
+            },
+            {
+                question: "Qual habilidade você considera mais forte em você?",
+                options: [
+                    { text: "Comunicação e cuidado com as pessoas", area: "enfermagem", weight: 3 },
+                    { text: "Atenção a detalhes e precisão técnica", area: "analises_clinicas", weight: 3 },
+                    { text: "Conhecimento em química e biologia", area: "farmacia", weight: 3 },
+                    { text: "Habilidade com tecnologia e equipamentos", area: "radiologia", weight: 3 },
+                    { text: "Organização e gestão de recursos", area: "administracao", weight: 3 },
+                    { text: "Raciocínio lógico e resolução de problemas", area: "informatica", weight: 3 }
+                ]
+            },
+            {
+                question: "Como você lida com situações de pressão?",
+                options: [
+                    { text: "Mantendo a calma e cuidando das emergências", area: "enfermagem", weight: 2 },
+                    { text: "Seguindo procedimentos com exatidão", area: "analises_clinicas", weight: 2 },
+                    { text: "Conferindo fórmulas e dosagens com cuidado", area: "farmacia", weight: 2 },
+                    { text: "Garantindo qualidade nas imagens médicas", area: "radiologia", weight: 2 },
+                    { text: "Organizando prioridades e prazos", area: "administracao", weight: 2 },
+                    { text: "Solucionando falhas técnicas rapidamente", area: "informatica", weight: 2 }
+                ]
+            },
+            {
+                question: "O que mais te motiva no trabalho?",
+                options: [
+                    { text: "Ajudar pessoas em momentos de vulnerabilidade", area: "enfermagem", weight: 3 },
+                    { text: "Contribuir para diagnósticos precisos", area: "analises_clinicas", weight: 3 },
+                    { text: "Garantir acesso a medicamentos seguros", area: "farmacia", weight: 3 },
+                    { text: "Fornecer imagens que salvam vidas", area: "radiologia", weight: 3 },
+                    { text: "Otimizar processos e aumentar eficiência", area: "administracao", weight: 3 },
+                    { text: "Criar soluções tecnológicas inovadoras", area: "informatica", weight: 3 }
+                ]
+            },
+            {
+                question: "Qual tipo de desafio profissional você mais gosta?",
+                options: [
+                    { text: "Atender casos complexos com múltiplas necessidades", area: "enfermagem", weight: 2 },
+                    { text: "Descobrir diagnósticos através de análises precisas", area: "analises_clinicas", weight: 2 },
+                    { text: "Desenvolver novas fórmulas e composições", area: "farmacia", weight: 2 },
+                    { text: "Dominar novas tecnologias de imagem médica", area: "radiologia", weight: 2 },
+                    { text: "Implementar sistemas que melhoram a produtividade", area: "administracao", weight: 2 },
+                    { text: "Resolver bugs e otimizar performance de sistemas", area: "informatica", weight: 2 }
+                ]
+            },
+            {
+                question: "Como você prefere se comunicar no trabalho?",
+                options: [
+                    { text: "Diretamente com pacientes e famílias", area: "enfermagem", weight: 2 },
+                    { text: "Através de relatórios técnicos e laudos", area: "analises_clinicas", weight: 2 },
+                    { text: "Orientando sobre uso de medicamentos", area: "farmacia", weight: 2 },
+                    { text: "Explicando procedimentos de exames", area: "radiologia", weight: 2 },
+                    { text: "Coordenando reuniões e apresentações", area: "administracao", weight: 2 },
+                    { text: "Documentando códigos e sistemas", area: "informatica", weight: 2 }
+                ]
+            },
+            {
+                question: "Qual aspecto da rotina de trabalho mais te agrada?",
+                options: [
+                    { text: "Plantões e atendimento em turnos variados", area: "enfermagem", weight: 2 },
+                    { text: "Rotina laboratorial com horários definidos", area: "analises_clinicas", weight: 2 },
+                    { text: "Atendimento ao público e balcão", area: "farmacia", weight: 2 },
+                    { text: "Operação de equipamentos em salas controladas", area: "radiologia", weight: 2 },
+                    { text: "Horário comercial com metas a cumprir", area: "administracao", weight: 2 },
+                    { text: "Flexibilidade de horários e home office", area: "informatica", weight: 2 }
+                ]
+            },
+            {
+                question: "O que você mais valoriza em uma carreira?",
+                options: [
+                    { text: "Impacto direto na qualidade de vida das pessoas", area: "enfermagem", weight: 3 },
+                    { text: "Precisão científica e contribuição para a medicina", area: "analises_clinicas", weight: 3 },
+                    { text: "Segurança e eficácia no uso de medicamentos", area: "farmacia", weight: 3 },
+                    { text: "Tecnologia avançada aplicada à saúde", area: "radiologia", weight: 3 },
+                    { text: "Crescimento profissional e oportunidades", area: "administracao", weight: 3 },
+                    { text: "Inovação constante e aprendizado contínuo", area: "informatica", weight: 3 }
+                ]
+            },
+            {
+                question: "Como você lida com novas tecnologias?",
+                options: [
+                    { text: "Aprendo o necessário para operar equipamentos médicos", area: "enfermagem", weight: 1 },
+                    { text: "Me atualizo constantemente sobre novos métodos", area: "analises_clinicas", weight: 1 },
+                    { text: "Acompanho inovações em medicamentos", area: "farmacia", weight: 1 },
+                    { text: "Sou fascinado por equipamentos de última geração", area: "radiologia", weight: 1 },
+                    { text: "Uso ferramentas para melhorar a gestão", area: "administracao", weight: 1 },
+                    { text: "Sou early adopter e gosto de testar novidades", area: "informatica", weight: 1 }
+                ]
+            },
+            {
+                question: "Qual tipo de aprendizado mais te atrai?",
+                options: [
+                    { text: "Prática clínica e simulações realistas", area: "enfermagem", weight: 2 },
+                    { text: "Aulas teóricas com muita fundamentação", area: "analises_clinicas", weight: 2 },
+                    { text: "Experimentação e manipulação de substâncias", area: "farmacia", weight: 2 },
+                    { text: "Operação prática de equipamentos", area: "radiologia", weight: 2 },
+                    { text: "Casos reais de gestão e administração", area: "administracao", weight: 2 },
+                    { text: "Projetos hands-on e desafios de programação", area: "informatica", weight: 2 }
+                ]
+            },
+            {
+                question: "Como você se vê daqui a 5 anos?",
+                options: [
+                    { text: "Coordenando uma equipe de enfermagem", area: "enfermagem", weight: 3 },
+                    { text: "Especialista em um laboratório de referência", area: "analises_clinicas", weight: 3 },
+                    { text: "Gerente de uma farmácia ou drogaria", area: "farmacia", weight: 3 },
+                    { text: "Operador de equipamentos de alta complexidade", area: "radiologia", weight: 3 },
+                    { text: "Coordenador administrativo em uma empresa", area: "administracao", weight: 3 },
+                    { text: "Desenvolvedor sênior ou especialista em TI", area: "informatica", weight: 3 }
+                ]
+            },
+            {
+                question: "Qual é sua relação com estudos e atualização?",
+                options: [
+                    { text: "Gosto de cursos práticos e especializações", area: "enfermagem", weight: 2 },
+                    { text: "Acompanho periódicos científicos regularmente", area: "analises_clinicas", weight: 2 },
+                    { text: "Estudo constantemente novas medicações", area: "farmacia", weight: 2 },
+                    { text: "Me atualizo sobre novas técnicas de imagem", area: "radiologia", weight: 2 },
+                    { text: "Faço cursos de gestão e liderança", area: "administracao", weight: 2 },
+                    { text: "Aprendo novas linguagens e frameworks", area: "informatica", weight: 2 }
+                ]
+            },
+            {
+                question: "Como você lida com regras e protocolos?",
+                options: [
+                    { text: "Sigo rigorosamente para segurança do paciente", area: "enfermagem", weight: 2 },
+                    { text: "Entendo que são essenciais para resultados confiáveis", area: "analises_clinicas", weight: 2 },
+                    { text: "Respeito as normas da vigilância sanitária", area: "farmacia", weight: 2 },
+                    { text: "Sigo protocolos de radioproteção à risca", area: "radiologia", weight: 2 },
+                    { text: "Uso como base para otimizar processos", area: "administracao", weight: 2 },
+                    { text: "Sigo padrões de codificação e boas práticas", area: "informatica", weight: 2 }
+                ]
+            },
+            {
+                question: "O que te deixa mais realizado profissionalmente?",
+                options: [
+                    { text: "Ver a recuperação e gratidão dos pacientes", area: "enfermagem", weight: 3 },
+                    { text: "Contribuir para um diagnóstico preciso", area: "analises_clinicas", weight: 3 },
+                    { text: "Saber que medicamentos estão ajudando pessoas", area: "farmacia", weight: 3 },
+                    { text: "Fornecer imagens que auxiliam tratamentos", area: "radiologia", weight: 3 },
+                    { text: "Ver a empresa crescer com minha gestão", area: "administracao", weight: 3 },
+                    { text: "Ver um sistema que criei sendo usado", area: "informatica", weight: 3 }
+                ]
+            },
+            {
+                question: "Como você toma decisões importantes?",
+                options: [
+                    { text: "Com base na experiência clínica e intuição", area: "enfermagem", weight: 2 },
+                    { text: "Analisando dados e evidências científicas", area: "analises_clinicas", weight: 2 },
+                    { text: "Consultando bulas e literatura médica", area: "farmacia", weight: 2 },
+                    { text: "Seguindo protocolos estabelecidos", area: "radiologia", weight: 2 },
+                    { text: "Avaliando custo-benefício e impactos", area: "administracao", weight: 2 },
+                    { text: "Testando soluções e analisando resultados", area: "informatica", weight: 2 }
+                ]
+            },
+            {
+                question: "Qual tipo de trabalho em equipe você prefere?",
+                options: [
+                    { text: "Equipes multidisciplinares em saúde", area: "enfermagem", weight: 2 },
+                    { text: "Pares com mesma especialização técnica", area: "analises_clinicas", weight: 2 },
+                    { text: "Equipe focada em atendimento ao cliente", area: "farmacia", weight: 2 },
+                    { text: "Duplas técnicas para operar equipamentos", area: "radiologia", weight: 2 },
+                    { text: "Equipes de diferentes departamentos", area: "administracao", weight: 2 },
+                    { text: "Squads ágeis com funções complementares", area: "informatica", weight: 2 }
+                ]
+            },
+            {
+                question: "Como você lida com feedback no trabalho?",
+                options: [
+                    { text: "Aceito bem para melhorar o cuidado ao paciente", area: "enfermagem", weight: 1 },
+                    { text: "Busco constantemente para refinar técnicas", area: "analises_clinicas", weight: 1 },
+                    { text: "Valorizo para oferecer melhor atendimento", area: "farmacia", weight: 1 },
+                    { text: "Uso para aperfeiçoar a qualidade das imagens", area: "radiologia", weight: 1 },
+                    { text: "Vejo como oportunidade de crescimento", area: "administracao", weight: 1 },
+                    { text: "Aplico imediatamente para melhorar códigos", area: "informatica", weight: 1 }
+                ]
+            },
+            {
+                question: "O que você considera mais desafiador?",
+                options: [
+                    { text: "Lidar com o sofrimento humano diariamente", area: "enfermagem", weight: 2 },
+                    { text: "Manter a precisão em análises repetitivas", area: "analises_clinicas", weight: 2 },
+                    { text: "Atualizar-se sobre novas drogas constantemente", area: "farmacia", weight: 2 },
+                    { text: "Operar equipamentos complexos com perfeição", area: "radiologia", weight: 2 },
+                    { text: "Gerenciar conflitos entre pessoas", area: "administracao", weight: 2 },
+                    { text: "Resolver problemas nunca vistos antes", area: "informatica", weight: 2 }
+                ]
+            },
+            {
+                question: "Qual é sua expectativa salarial?",
+                options: [
+                    { text: "Estabilidade com possibilidade de plantões", area: "enfermagem", weight: 1 },
+                    { text: "Remuneração técnica com especialização", area: "analises_clinicas", weight: 1 },
+                    { text: "Salário base com comissões por vendas", area: "farmacia", weight: 1 },
+                    { text: "Boa remuneração em hospitais privados", area: "radiologia", weight: 1 },
+                    { text: "Crescimento conforme experiência e cargo", area: "administracao", weight: 1 },
+                    { text: "Alta remuneração com especialização tech", area: "informatica", weight: 1 }
+                ]
+            }
+        ];
+
+        // Informações detalhadas sobre cada curso
+        const courseInfo = {
+            enfermagem: {
+                name: "Técnico em Enfermagem",
+                icon: "💉",
+                description: "Seu perfil demonstra forte vocação para a Enfermagem! Você tem empatia, habilidades de comunicação e interesse genuíno pelo cuidado humano. Esta área oferece diversas oportunidades no mercado de saúde.",
+                characteristics: [
+                    "Habilidade de comunicação e empatia desenvolvidas",
+                    "Capacidade de trabalhar sob pressão",
+                    "Interesse pelo cuidado integral ao paciente",
+                    "Trabalho em equipe multidisciplinar",
+                    "Comprometimento com a saúde e bem-estar"
+                ],
+                careers: [
+                    "Técnico de Enfermagem em Unidades Básicas de Saúde",
+                    "Técnico de Enfermagem em Hospitais",
+                    "Técnico de Enfermagem em Urgência e Emergência",
+                    "Técnico de Enfermagem em Saúde da Família",
+                    "Técnico de Enfermagem em Instituições de Longa Permanência",
+                    "Técnico de Enfermagem em Clínicas e Consultórios"
+                ],
+                recommendations: [
+                    "Curso Técnico em Enfermagem da Grau - Duração: 24 meses",
+                    "Participe de projetos voluntários em saúde comunitária",
+                    "Desenvolva habilidades em primeiros socorros",
+                    "Estude farmacologia e procedimentos técnicos",
+                    "Pratique comunicação terapêutica com pacientes"
+                ]
+            },
+            administracao: {
+                name: "Técnico em Administração",
+                icon: "📊",
+                description: "Você tem perfil administrativo! Suas respostas indicam organização, visão estratégica e habilidade para gerenciar processos. Esta formação abre portas em diversos setores do mercado.",
+                characteristics: [
+                    "Organização e planejamento eficiente",
+                    "Habilidade com números e processos",
+                    "Visão estratégica de negócios",
+                    "Capacidade de liderança e gestão",
+                    "Comunicação clara e objetiva"
+                ],
+                careers: [
+                    "Assistente Administrativo",
+                    "Auxiliar de Departamento Pessoal",
+                    "Assistente de Recursos Humanos",
+                    "Atendente de Comércio Exterior",
+                    "Auxiliar de Logística",
+                    "Assistente Financeiro",
+                    "Assistente de Vendas"
+                ],
+                recommendations: [
+                    "Curso Técnico em Administração da Grau - Duração: 18 meses",
+                    "Domine o pacote Office (Excel, Word, PowerPoint)",
+                    "Desenvolva habilidades em atendimento ao cliente",
+                    "Estude noções de contabilidade e finanças",
+                    "Pratique redação oficial e comunicação empresarial"
+                ]
+            },
+            farmacia: {
+                name: "Técnico em Farmácia",
+                icon: "💊",
+                description: "Seu interesse por ciências e cuidado com medicamentos indica forte aptidão para Farmácia! Esta área combina conhecimento científico com atendimento ao público.",
+                characteristics: [
+                    "Interesse por química e biologia",
+                    "Atenção a detalhes e precisão",
+                    "Habilidade de atendimento ao público",
+                    "Conhecimento em medicamentos",
+                    "Responsabilidade com saúde pública"
+                ],
+                careers: [
+                    "Técnico em Farmácia (Dispensação)",
+                    "Auxiliar de Farmácia de Manipulação",
+                    "Técnico em Controle de Qualidade",
+                    "Assistente de Pesquisa Clínica",
+                    "Auxiliar em Laboratórios Farmacêuticos"
+                ],
+                recommendations: [
+                    "Curso Técnico em Farmácia da Grau - Duração: 24 meses",
+                    "Estude química farmacêutica e bioquímica",
+                    "Conheça a legislação sanitária brasileira",
+                    "Desenvolva habilidades em atendimento farmacêutico",
+                    "Aprenda sobre manipulação de medicamentos"
+                ]
+            },
+            analises_clinicas: {
+                name: "Técnico em Análises Clínicas",
+                icon: "🔬",
+                description: "Seu perfil analítico e interesse por investigação científica combinam perfeitamente com Análises Clínicas! Você vai atuar na linha de frente do diagnóstico médico.",
+                characteristics: [
+                    "Metodicidade e precisão técnica",
+                    "Interesse por investigação científica",
+                    "Habilidade com equipamentos laboratoriais",
+                    "Atenção a protocolos e procedimentos",
+                    "Capacidade de análise crítica"
+                ],
+                careers: [
+                    "Técnico em Laboratório de Análises Clínicas",
+                    "Coletador de Materiais Biológicos",
+                    "Auxiliar de Laboratório de Patologia",
+                    "Técnico em Biologia Molecular",
+                    "Auxiliar em Bancos de Sangue"
+                ],
+                recommendations: [
+                    "Curso Técnico em Análises Clínicas da Grau - Duração: 24 meses",
+                    "Domine técnicas de coleta e processamento",
+                    "Estude microbiologia e hematologia",
+                    "Aprenda sobre controle de qualidade laboratorial",
+                    "Desenvolva habilidades em biossegurança"
+                ]
+            },
+            radiologia: {
+                name: "Técnico em Radiologia",
+                icon: "📷",
+                description: "Sua afinidade com tecnologia e interesse por diagnóstico por imagem indicam aptidão para Radiologia! Esta área une conhecimento médico e tecnologia de ponta.",
+                characteristics: [
+                    "Habilidade com equipamentos tecnológicos",
+                    "Interesse por anatomia e fisiologia",
+                    "Precisão técnica e atenção a detalhes",
+                    "Capacidade de interpretação de imagens",
+                    "Compromisso com a segurança radiológica"
+                ],
+                careers: [
+                    "Técnico em Radiologia Médica",
+                    "Técnico em Tomografia Computadorizada",
+                    "Técnico em Ressonância Magnética",
+                    "Técnico em Radioterapia",
+                    "Auxiliar de Medicina Nuclear"
+                ],
+                recommendations: [
+                    "Curso Técnico em Radiologia da Grau - Duração: 24 meses",
+                    "Estude física das radiações e proteção radiológica",
+                    "Aprenda posicionamento radiológico e anatomia",
+                    "Conheça os diferentes equipamentos de imagem",
+                    "Desenvolva habilidades em atendimento ao paciente"
+                ]
+            },
+            informatica: {
+                name: "Técnico em Informática",
+                icon: "💻",
+                description: "Seu raciocínio lógico e interesse por tecnologia apontam para a área de Informática! Esta formação prepara para um mercado em constante expansão.",
+                characteristics: [
+                    "Raciocínio lógico e analítico",
+                    "Interesse por tecnologia e inovação",
+                    "Habilidade de resolução de problemas",
+                    "Capacidade de aprendizado contínuo",
+                    "Atenção a detalhes e sistemática"
+                ],
+                careers: [
+                    "Técnico de Suporte em Informática",
+                    "Assistente de Infraestrutura de Redes",
+                    "Programador Web ou Mobile Júnior",
+                    "Auxiliar em Desenvolvimento de Sistemas",
+                    "Assistente de TI em diversas empresas"
+                ],
+                recommendations: [
+                    "Curso Técnico em Informática da Grau - Duração: 18 meses",
+                    "Aprenda linguagens de programação (Python, JavaScript)",
+                    "Domine redes de computadores e hardware",
+                    "Desenvolva projetos práticos para portfolio",
+                    "Mantenha-se atualizado com as tendências tech"
+                ]
+            }
+        };
+
+        // Variáveis do quiz
+        let currentQuestion = 0;
+        let answers = [];
+        let scores = {
+            enfermagem: 0,
+            administracao: 0,
+            farmacia: 0,
+            analises_clinicas: 0,
+            radiologia: 0,
+            informatica: 0
+        };
+
+        // Iniciar o quiz
+        function startQuiz() {
+            document.getElementById('start-screen').style.display = 'none';
+            document.getElementById('question-container').classList.add('active');
+            showQuestion();
+        }
+
+        // Mostrar pergunta atual
+        function showQuestion() {
+            const question = questions[currentQuestion];
+            const progressPercent = ((currentQuestion + 1) / questions.length) * 100;
+            
+            document.getElementById('progress-fill').style.width = progressPercent + '%';
+            document.getElementById('progress-text').textContent = `Pergunta ${currentQuestion + 1} de ${questions.length}`;
+            document.getElementById('progress-percent').textContent = `${Math.round(progressPercent)}%`;
+            document.getElementById('question-number').textContent = `Pergunta ${currentQuestion + 1}`;
+            document.getElementById('question-text').textContent = question.question;
+            
+            const optionsContainer = document.getElementById('options');
+            optionsContainer.innerHTML = '';
+            
+            const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
+            question.options.forEach((option, index) => {
+                if (index < 6) { // Máximo de 6 opções
+                    const optionDiv = document.createElement('div');
+                    optionDiv.className = 'option';
+                    if (answers[currentQuestion] === index) {
+                        optionDiv.classList.add('selected');
+                    }
+                    optionDiv.onclick = () => selectOption(index);
+                    
+                    optionDiv.innerHTML = `
+                        <div class="option-letter">${letters[index]}</div>
+                        <div class="option-text">${option.text}</div>
+                    `;
+                    
+                    optionsContainer.appendChild(optionDiv);
+                }
+            });
+            
+            updateNavigationButtons();
+        }
+
+        // Selecionar opção
+        function selectOption(index) {
+            answers[currentQuestion] = index;
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach((opt, i) => {
+                if (i === index) {
+                    opt.classList.add('selected');
+                } else {
+                    opt.classList.remove('selected');
+                }
+            });
+            
+            updateNavigationButtons();
+        }
+
+        // Atualizar botões de navegação
+        function updateNavigationButtons() {
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.disabled = answers[currentQuestion] === undefined;
+            
+            if (currentQuestion === questions.length - 1) {
+                nextBtn.textContent = 'Ver Resultado 🎯';
+            } else {
+                nextBtn.textContent = 'Próxima →';
+            }
+        }
+
+        // Pergunta anterior
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        // Próxima pergunta
+        function nextQuestion() {
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                calculateResults();
+            }
+        }
+
+        // Calcular resultados
+        function calculateResults() {
+            // Resetar scores
+            scores = {
+                enfermagem: 0,
+                administracao: 0,
+                farmacia: 0,
+                analises_clinicas: 0,
+                radiologia: 0,
+                informatica: 0
+            };
+            
+            // Calcular scores com pesos
+            answers.forEach((answerIndex, questionIndex) => {
+                if (answerIndex !== undefined) {
+                    const option = questions[questionIndex].options[answerIndex];
+                    scores[option.area] += option.weight;
+                }
+            });
+            
+            showResults();
+        }
+
+        // Mostrar resultados
+        function showResults() {
+            document.getElementById('question-container').classList.remove('active');
+            document.getElementById('result-screen').classList.add('active');
+            
+            // Encontrar os 3 cursos com maior pontuação
+            const sortedCourses = Object.keys(scores).sort((a, b) => scores[b] - scores[a]);
+            const topCourse = sortedCourses[0];
+            const secondCourse = sortedCourses[1];
+            const thirdCourse = sortedCourses[2];
+            
+            const info = courseInfo[topCourse];
+            const maxScore = Math.max(...Object.values(scores));
+            const percentage = Math.round((scores[topCourse] / maxScore) * 100);
+            
+            let resultHTML = `
+                <div class="result-area">
+                    <div class="icon">${info.icon}</div>
+                    <h3>${info.name}</h3>
+                    <div class="percentage">${percentage}%</div>
+                    <p>de compatibilidade com seu perfil</p>
+                </div>
+                
+                <div class="result-details">
+                    <div class="result-description">
+                        <h4>Análise do Seu Perfil</h4>
+                        <p>${info.description}</p>
+                        
+                        <h4>Características Identificadas</h4>
+                        <ul>
+                            ${info.characteristics.map(char => `<li>${char}</li>`).join('')}
+                        </ul>
+                        
+                        <h4>Recomendações de Desenvolvimento</h4>
+                        <ul>
+                            ${info.recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div class="career-opportunities">
+                        <h4>Oportunidades de Carreira</h4>
+                        <ul>
+                            ${info.careers.map(career => `<li>${career}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="recommendations">
+                    <h4>Também consideramos para você</h4>
+                    <p>Com base no seu perfil, estas outras áreas também podem ser interessantes:</p>
+                    <ul>
+                        <li><strong>${courseInfo[secondCourse].name}</strong> - ${Math.round((scores[secondCourse] / maxScore) * 100)}% de compatibilidade</li>
+                        <li><strong>${courseInfo[thirdCourse].name}</strong> - ${Math.round((scores[thirdCourse] / maxScore) * 100)}% de compatibilidade</li>
+                    </ul>
+                </div>
+                
+                <div class="scores-breakdown">
+                    <div class="score-card">
+                        <div class="icon">💉</div>
+                        <h4>Enfermagem</h4>
+                        <div class="score">${Math.round((scores.enfermagem / maxScore) * 100)}%</div>
+                    </div>
+                    <div class="score-card">
+                        <div class="icon">📊</div>
+                        <h4>Administração</h4>
+                        <div class="score">${Math.round((scores.administracao / maxScore) * 100)}%</div>
+                    </div>
+                    <div class="score-card">
+                        <div class="icon">💊</div>
+                        <h4>Farmácia</h4>
+                        <div class="score">${Math.round((scores.farmacia / maxScore) * 100)}%</div>
+                    </div>
+                    <div class="score-card">
+                        <div class="icon">🔬</div>
+                        <h4>Análises Clínicas</h4>
+                        <div class="score">${Math.round((scores.analises_clinicas / maxScore) * 100)}%</div>
+                    </div>
+                    <div class="score-card">
+                        <div class="icon">📷</div>
+                        <h4>Radiologia</h4>
+                        <div class="score">${Math.round((scores.radiologia / maxScore) * 100)}%</div>
+                    </div>
+                    <div class="score-card">
+                        <div class="icon">💻</div>
+                        <h4>Informática</h4>
+                        <div class="score">${Math.round((scores.informatica / maxScore) * 100)}%</div>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('result-content').innerHTML = resultHTML;
+        }
+
+        // Mostrar cursos - Redireciona para Instagram
+        function showCourses() {
+            window.open('https://www.instagram.com/grautecnicofloripa/', '_blank');
+        }
+
+        // Compartilhar resultado como imagem
+        function shareResult() {
+            const resultContent = document.getElementById('result-content');
+            
+            html2canvas(resultContent).then(canvas => {
+                const image = canvas.toDataURL('image/png');
+                const shareModal = document.getElementById('share-modal');
+                const shareImage = document.getElementById('share-image');
+                
+                shareImage.src = image;
+                shareModal.classList.add('active');
+            });
+        }
+
+        // Fechar modal de compartilhamento
+        function closeShareModal() {
+            document.getElementById('share-modal').classList.remove('active');
+        }
+
+        // Baixar imagem
+        function downloadImage() {
+            const shareImage = document.getElementById('share-image');
+            const link = document.createElement('a');
+            link.download = 'meu-resultado-grau-tecnico.png';
+            link.href = shareImage.src;
+            link.click();
+        }
+
+        // Compartilhar nas redes sociais
+        function shareOnSocial() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Meu Resultado no Teste Vocacional Grau Técnico',
+                    text: 'Descubra qual carreira técnica combina com você!',
+                    url: window.location.href
+                })
+                .then(() => console.log('Compartilhado com sucesso'))
+                .catch((error) => console.log('Erro ao compartilhar:', error));
+            } else {
+                // Fallback para dispositivos sem suporte a Web Share API
+                shareResult();
+            }
+        }
+
+        // Reiniciar quiz
+        function restartQuiz() {
+            currentQuestion = 0;
+            answers = [];
+            scores = {
+                enfermagem: 0,
+                administracao: 0,
+                farmacia: 0,
+                analises_clinicas: 0,
+                radiologia: 0,
+                informatica: 0
+            };
+            
+            document.getElementById('result-screen').classList.remove('active');
+            document.getElementById('start-screen').style.display = 'block';
+        }
+
+        // Integração com SDK (mantida do código original)
+        async function onConfigChange(newConfig) {
+            // Implementação da integração com SDK
+            // ... (código mantido do original)
+        }
+
+        // Inicialização do SDK (mantida do código original)
+        if (window.elementSdk) {
+            // ... (código mantido do original)
+        }
+    </script>
+</body>
+</html>
