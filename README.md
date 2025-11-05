@@ -1,78 +1,77 @@
-🎓 Teste Vocacional – Grau Técnico
+# 🎓 Teste Vocacional – Grau Técnico
 
-Uma aplicação interativa e moderna desenvolvida para ajudar estudantes a descobrirem qual carreira técnica combina mais com seu perfil.
-O Teste Vocacional Grau Técnico utiliza um sistema de perguntas e pontuação inteligente para identificar as áreas mais compatíveis com as habilidades, interesses e personalidade do usuário.
+Uma aplicação interativa e moderna desenvolvida para ajudar estudantes a descobrirem qual carreira técnica combina mais com seu perfil.  
+O **Teste Vocacional Grau Técnico** utiliza um sistema de perguntas e pontuação inteligente para identificar as áreas mais compatíveis com as habilidades, interesses e personalidade do usuário.
 
-🚀 Funcionalidades
+---
 
-20 perguntas personalizadas para traçar o perfil vocacional do participante.
+## 🚀 Funcionalidades
 
-Análise detalhada de resultados, com recomendações de cursos e carreiras.
+- **20 perguntas personalizadas** para traçar o perfil vocacional do participante.  
+- **Análise detalhada de resultados**, com recomendações de cursos e carreiras.  
+- **Interface moderna e responsiva**, projetada com HTML, CSS e JavaScript puro.  
+- **Sistema de pontuação por área técnica**, com pesos configuráveis.  
+- **Geração de imagem do resultado** (via [html2canvas](https://html2canvas.hertzen.com/)) para compartilhamento.  
+- **Compatibilidade com dispositivos móveis**.  
+- **CTA dinâmico** que direciona o usuário para conhecer os cursos da Grau Técnico.  
 
-Interface moderna e responsiva, projetada com HTML, CSS e JavaScript puro.
+---
 
-Sistema de pontuação por área técnica, com pesos configuráveis.
-
-Geração de imagem do resultado (via html2canvas
-) para compartilhamento.
-
-Compatibilidade com dispositivos móveis.
-
-CTA dinâmico que direciona o usuário para conhecer os cursos da Grau Técnico.
-
-🧠 Áreas Técnicas Avaliadas
+## 🧠 Áreas Técnicas Avaliadas
 
 O teste analisa afinidades e gera compatibilidade com seis áreas principais:
 
-💉 Enfermagem
+1. 💉 **Enfermagem**  
+2. 📊 **Administração**  
+3. 💊 **Farmácia**  
+4. 🔬 **Análises Clínicas**  
+5. 📷 **Radiologia**  
+6. 💻 **Informática**
 
-📊 Administração
+---
 
-💊 Farmácia
+## 🧩 Tecnologias Utilizadas
 
-🔬 Análises Clínicas
+- **HTML5** – Estrutura semântica e conteúdo do projeto  
+- **CSS3** – Design moderno, responsivo e com animações  
+- **JavaScript (ES6)** – Lógica de perguntas, pontuação e resultados  
+- **[html2canvas](https://html2canvas.hertzen.com/)** – Captura e geração de imagem para compartilhamento  
 
-📷 Radiologia
+---
 
-💻 Informática
+## 💡 Como Usar
 
-🧩 Tecnologias Utilizadas
+1. Baixe ou clone este repositório:
+   ```bash
+   git clone https://github.com/seuusuario/teste-vocacional-grau-tecnico.git
+   ```
 
-HTML5 – Estrutura semântica e conteúdo do projeto
+2. Abra o arquivo `index.html` em qualquer navegador.
 
-CSS3 – Design moderno, responsivo e com animações
+3. Clique em **“🚀 Iniciar Teste Vocacional”**.
 
-JavaScript (ES6) – Lógica de perguntas, pontuação e resultados
+4. Responda às 20 perguntas e visualize seu resultado ao final.
 
-html2canvas
- – Captura e geração de imagem para compartilhamento
+5. Compartilhe o resultado com seus amigos ou salve como imagem!
 
-💡 Como Usar
+---
 
-Baixe ou clone este repositório:
+## 🖼️ Estrutura do Projeto
 
-git clone https://github.com/seuusuario/teste-vocacional-grau-tecnico.git
-
-
-Abra o arquivo index.html em qualquer navegador.
-
-Clique em “🚀 Iniciar Teste Vocacional”.
-
-Responda às 20 perguntas e visualize seu resultado ao final.
-
-Compartilhe o resultado com seus amigos ou salve como imagem!
-
-🖼️ Estrutura do Projeto
+```
 📁 teste-vocacional-grau-tecnico
 │
 ├── index.html          # Aplicação completa (HTML, CSS e JS)
 ├── README.md           # Documentação do projeto
 └── assets/             # (opcional) Imagens e ícones, se houver
+```
 
-⚙️ Personalização
+---
 
-Você pode alterar o tema e textos modificando a configuração no objeto defaultConfig dentro do script JavaScript:
+## ⚙️ Personalização
 
+Você pode alterar o tema e textos modificando a configuração no objeto `defaultConfig` dentro do script JavaScript:
+```js
 const defaultConfig = {
   quiz_title: "Teste Vocacional Grau Técnico",
   primary_color: "#2e4e16",
@@ -80,22 +79,28 @@ const defaultConfig = {
   font_family: "Segoe UI",
   font_size: 16
 };
+```
 
-📸 Compartilhamento
+---
+
+## 📸 Compartilhamento
 
 O usuário pode salvar ou compartilhar o resultado diretamente:
+- Captura automática da tela com `html2canvas`.
+- Opção de **download da imagem**.
+- Suporte a **Web Share API** em dispositivos móveis.
 
-Captura automática da tela com html2canvas.
+---
 
-Opção de download da imagem.
+## 🧑‍💻 Desenvolvido por
 
-Suporte a Web Share API em dispositivos móveis.
+**Equipe Grau Técnico Florianópolis**  
+📍 Florianópolis – SC  
+🔗 [Instagram @grautecnicofloripa](https://www.instagram.com/grautecnicofloripa/)
 
-🧑‍💻 Desenvolvido por Lucas Jefrey para a Equipe Grau Técnico Florianópolis
-📍 Florianópolis – SC
-🔗 Instagram @grautecnicofloripa
+---
 
-🪪 Licença
+## 🪪 Licença
 
-Este projeto é de uso interno e educacional, desenvolvido para fins institucionais da Grau Técnico de Florianópolis.
+Este projeto é de uso interno e educacional, desenvolvido para fins institucionais da **Grau Técnico**.  
 Redistribuição ou uso comercial não autorizado sem permissão prévia.
